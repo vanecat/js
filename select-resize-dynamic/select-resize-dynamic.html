@@ -19,6 +19,7 @@
     <script src="../utils/jquery-3.2.1.min.js"></script>
     <script src="../utils/jquery-ready.js"></script>
     <script src="select-resize-dynamic.js"></script>
+    <script src="../navigator/navigator.js"></script>
 </head>
 <body>
 <h1>Resize the height of the SELECT Widget based on how many OPTIONS it has (v1.1.2)</h1>
@@ -40,12 +41,7 @@
     <option value="107888">Thread Inspection</option>
 </select>
 <script>
-    jQueryReady(function($){
-
-        if (testSelectFancyWidgetEnabled($)) {
-            resizeSelectBasedOnOptionsHeight($);
-        }
-    });
+    jQueryReady(resizeSelectBasedOnOptionsHeight);
 
 </script>
 
