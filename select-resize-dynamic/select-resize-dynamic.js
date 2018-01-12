@@ -19,7 +19,7 @@ function resizeSelectBasedOnOptionsHeight($) {
         maxW = maxW  < w1 ?  w1 : maxW;
     });
 
-    $('body').append('<div>The dimension of an option (and its CSS position property) are:<br/>'+dims.toString()+'</div>');
+    log('The dimension of an option (and its CSS position property) are:', dims.toString());
 
     $('select').height( h  ).width( maxW ).removeAttr('size');
 }
@@ -42,7 +42,7 @@ function testSelectFancyWidgetEnabled($) {
     var optionHeight = $($options[0]).height();
     $('#'+randId).remove(); // clean up after ourselves
 
-    $body.append("<div>Test Option height: "+optionHeight+", Test Option Outer Height: "+$($options[0]).outerHeight()+"</div>")
+    log("Test Option height: "+optionHeight, "Test Option Outer Height: "+$($options[0]).outerHeight());
 
     // if height is 0,
     //    then default options are not available for selection/clicking,

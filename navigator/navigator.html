@@ -9,6 +9,7 @@
 
     <script src="../utils/jquery-3.2.1.min.js"></script>
     <script src="../utils/jquery-ready.js"></script>
+    <script src="../utils/misc.js"></script>
     <script src="navigator.js"></script>
 </head>
 <body>
@@ -19,13 +20,13 @@ still alive and well so I need it.</p>
 <script>
     jQueryReady(
         function($) {
-            $('body').append( '<p>' + (isBrowserSafariOrOldMSIE() ? 'Old IE or Safari !!!' : 'legit browser') + '</p>');
+            log(isBrowserSafariOrOldMSIE() ? 'Old IE or Safari !!!' : 'legit browser');
 
             var out = '';
             for (k in navigator) {
                 out += k + ': ' + navigator[k] + '<br/>'
             }
-            $('body').append(out);
+            log(out);
         }
     );
 </script>
