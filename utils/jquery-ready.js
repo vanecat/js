@@ -1,12 +1,15 @@
 /**
  * Created by ivanvelev on 1/11/18.
  */
-function jQueryReady(f) {
+function jQueryReady($jqueryObj, a, b, c) {
+    if (!$jqueryObj) {
+        return;
+    }
     var fArr = Array.prototype.splice.call(arguments, 0);
-    jQuery(document).ready(function() {
+    $jqueryObj(document).ready(function() {
         console.log("READY", fArr);
-        jQuery.each(fArr, function(i,f) {
-            f(jQuery);
+        $jqueryObj.each(fArr, function(i,f) {
+            f($jqueryObj);
         });
     });
 }
