@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>test jquery and misc</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style>
+        div {
+            border: 1px solid #eee;
+        }
+    </style>
+
+    <script src="../utils/jquery-3.2.1.min.js"></script>
+    <script src="../utils/jquery-ready.js"></script>
+    <script src="fade-on-scroll.js"></script>
+</head>
+<body>
+
+<div style="height: 200px;">Test text above image</div>
+<div id="debug" style="position: fixed; right: 0; top: 0; height: 100px; width: 300px; overflow: scroll;">Status</div>
+<img src="test.jpg" id="i1" style="height: 300px;"/>
+<img src="test2.png" id="i2" height="547" width="467"/>
+<div style="height: 1000px;">Test text below image</div>
+
+<script>
+    jQueryReady(fadeElementOnScroll);
+</script>
+
+</body>
+</html>

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>test SELECT mouse/click events</title>
+
+    <script src="../utils/jquery-3.2.1.min.js"></script>
+    <script src="../utils/jquery.mobile.custom.min.js"></script>
+    <style>
+        div {
+            border: 1px solid #eee;
+        }
+    </style>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+</head>
+<body>
+<h1>test SELECT mouse/click events</h1>
+<p style="white-space: pre-wrap">THE BIG Conclusion of this is that
+
+    in Browsers WITH "fancy" pop-up "native" SELECT widgets
+    (e.g. Android, iOS phones/tablets)
+    clicking the SELECT elements fires a CLICK event
+    BUT it does not fire CLICK event on the OPTION element (since it is not shown)
+
+    in "normal" Browsers both the SELECT AND OPTION elements fire a click event
+
+    voila
+
+
+    so we can create a special behavior for "normal SELECT widget" browsers
+    by basing it on the "click" handler of the OPTION elements
+    (which will not be called on mobile/touch devices with "fancy"
+    SELECT widgets)
+</p>
+
+
+<div style="">
+    <select style="" multiple>
+        <option>aaaaaaaa</option>
+        <option>bbbbbbbb</option>
+        <option>cccccccc</option>
+    </select>
+    <div>Log</div>
+    <div class="log"></div>
+</div>
+
+<script>
+    jQuery(document).ready(function() {
+        var $ = jQuery;
+        $log = $('.log');
+        $select = $('select');
+        $select.bind('tap', function(){
+            $log.append('<div>TAPPED</div>');
+        });
+        $select.click(function(){
+            $log.append('<div>clicked</div>');
+        });
+        $select.mousedown(function(){
+            $log.append('<div>mouse down</div>');
+        });
+        $select.mouseup(function(){
+            $log.append('<div>mouse UP</div>');
+        });
+
+        $option = $('option');
+        $option.click(function(){
+            $log.append('<div>clicked option</div>');
+        });
+        $option.mousedown(function(){
+            $log.append('<div>mouse down: option</div>');
+        });
+        $option.mouseup(function(){
+            $log.append('<div>mouse UP: option</div>');
+        });
+
+
+    })
+</script>
+
+</body>
+</html>

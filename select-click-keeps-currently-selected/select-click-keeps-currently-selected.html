@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Select OPTION items in the SELECT without having to use Command/Meta Keyboard keys</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style>
+        select {
+            overflow: hidden;
+            /*width: 200px;*/
+            border: 1px solid red;
+            min-height: 14px;
+        }
+        option {
+            font-size: 20px;
+            width: 100%;
+            /*white-space: normal;*/
+        }
+    </style>
+
+    <script src="../utils/jquery-3.2.1.min.js"></script>
+    <script src="../utils/jquery-ready.js"></script>
+    <script src="select-click-keeps-currently-selected.js"></script>
+    <script src="../select-resize-dynamic/select-resize-dynamic.js"></script>
+    <script src="../utils/misc.js"></script>
+</head>
+<body>
+<h1>Select OPTION items in the SELECT without having to use Command/Meta Keyboard keys</h1>
+
+<form>
+<select multiple="multiple" onchange="" style="" name="selectTest">
+    <option value="107862" class="selected">Base Inspection</option>
+    <option value="107864" class="selected">Capping Flaws</option>
+    <option value="107866" class="selected">Filler, Seamer And Capper Management</option>
+    <option value="107868" class="">Fill Level Inspection</option>
+    <option value="107870" class="selected">Finish Inspection</option>
+    <option value="107872" class="">Foreign Object Detection</option>
+    <option value="107874" class="selected">Inner Sidewall Inspection</option>
+    <option value="107876" class="selected">Label And Date Code</option>
+    <option value="107878" class="selected">Outer Sidewall Inspection</option>
+    <option value="107880">Pressure Detection</option>
+    <option value="107882" class="selected">Residual Liquid &amp; Foreign Object Inspection</option>
+    <option value="107884">Sunken Object Detection</option>
+    <option value="107886" class="selected">Tailored Applications</option>
+    <option value="107888">Thread Inspection</option>
+</select>
+    <input type="submit" />
+</form>
+<script>
+    jQueryReady(
+        function($) {
+            var params = parseUrlQuery();
+            if (!!params['selectTest']) {
+                var arr = (params['selectTest'] instanceof Array) ? params['selectTest'] : [params['selectTest']];
+                $.each(arr, function(i,v) {
+                    $('option[value='+v+']').attr('selected', 'selected');
+                })
+            }
+        },
+        selectClickKeepsCurrentlySelected,
+        resizeSelectBasedOnOptionsHeight
+    );
+</script>
+
+</body>
+</html>
