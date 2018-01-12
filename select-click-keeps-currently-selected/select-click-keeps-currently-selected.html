@@ -22,9 +22,10 @@
 
     <script src="../utils/jquery-3.2.1.min.js"></script>
     <script src="../utils/jquery-ready.js"></script>
-    <script src="select-click-keeps-currently-selected.js"></script>
-    <script src="../select-resize-dynamic/select-resize-dynamic.js"></script>
     <script src="../utils/misc.js"></script>
+    <script src="select-click-keeps-currently-selected.js"></script>
+    <script src="../navigator/navigator.js"></script>
+    <script src="../select-resize-dynamic/select-resize-dynamic.js"></script>
 </head>
 <body>
 <h1>Select OPTION items in the SELECT without having to use Command/Meta Keyboard keys</h1>
@@ -51,6 +52,8 @@
 <script>
     jQueryReady(
         function($) {
+            // Let's set the SELECT OPTION "selected" state from the URL Query params
+            ///   to simulate a real-world PHP script setting this server-side
             var params = parseUrlQuery();
             if (!!params['selectTest']) {
                 var arr = (params['selectTest'] instanceof Array) ? params['selectTest'] : [params['selectTest']];
