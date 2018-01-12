@@ -2,6 +2,10 @@
  * Created by ivanvelev on 1/11/18.
  */
 
+String.prototype.contains = function(query) {
+    return this.indexOf(query) >=0;
+};
+
 function parseUrlQuery() {
     var query = (window.location.search+'').substring(1); // remove leading ?
     var params = query.split('&');
@@ -25,4 +29,19 @@ function parseUrlQuery() {
         }
     }
     return paramHash;
+}
+
+function log() {
+    var urlQuery = window.location.search+'';
+    if (!urlQuery.contains('debug=')) {
+        return;
+    }
+    var thingsToLog = Array.prototype.splice.call(arguments, 0);
+    if (urlQuery.contains('debug=onscreen')) {
+        var div = document.createElement('div');
+        div.innerHTML = thingsToLog.join('<br/>');
+        document.getElementsByName('body')[0].appendChild(div);
+    } else {
+        console.log(thingsToLog);
+    }
 }
