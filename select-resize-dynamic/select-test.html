@@ -8,22 +8,18 @@
 
     <style>
         select {
-            overflow: hidden;
-            min-height: 14px;
             border: 1px solid red;
         }
         option {
-            font-size: 20px;
-            width: 100%;
-            height: 14px;
-            /*white-space: normal;*/
         }
     </style>
+    <script src="../utils/jquery-3.2.1.min.js"></script>
+    <script src="../utils/jquery-ready.js"></script>
 
 </head>
 <body>
 <h1>Resize the height of the SELECT Widget based on how many OPTIONS it has</h1>
-<a href="./">Test DYNAMIC SELECT</a>
+<p><a href="./">Test DYNAMIC SELECT</a></p>
 <select multiple="multiple" onchange="" style="">
     <option value="107862" class="selected">Base Inspection</option>
     <option value="107864" class="selected">Capping Flaws</option>
@@ -40,8 +36,11 @@
     <option value="107886" class="selected">Tailored Applications</option>
     <option value="107888">Thread Inspection</option>
 </select>
-<script>
 
+<script>
+    jQueryReady(function($) {
+        $('body').append('<div>Option height: '+$('select option').height() + '</div>');
+    })
 </script>
 
 </body>
