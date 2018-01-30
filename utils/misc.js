@@ -40,7 +40,7 @@ function log() {
     if (urlQuery.contains('debug=onscreen')) {
         var div = document.createElement('div');
         div.innerHTML = thingsToLog.join('<br/>');
-        document.getElementsByName('body')[0].appendChild(div);
+        document.getElementsByTagName('body')[0].appendChild(div);
     } else {
         console.log(thingsToLog);
     }
